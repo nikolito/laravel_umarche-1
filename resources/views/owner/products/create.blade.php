@@ -96,7 +96,6 @@
   <script>
     'use strict'
     const images = document.querySelectorAll('.image')
-    // console.log(images)
     
     images.forEach( image =>  {
       image.addEventListener('click', function(e){
@@ -106,7 +105,6 @@
         const imageFile = e.target.dataset.file
         const imagePath = e.target.dataset.path
         const modal = e.target.dataset.modal
-        //console.log(imageName, imageId, imageFile, imagePath, modal)
         document.getElementById(imageName + '_thumbnail').src = imagePath + '/' + imageFile
         document.getElementById(imageName + '_hidden').value = imageId
         MicroModal.close(modal);

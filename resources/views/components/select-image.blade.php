@@ -19,7 +19,7 @@
       <main class="modal__content" id="{{ $modal }}-content">
         <div class="flex flex-wrap">
           @foreach ($images as $image )
-              <div class="w-1/4 p-2 md:p-4">
+            <div class="w-1/4 p-2 md:p-4">
               <div class="border rounded-md p-2 md:p-4">
                 <img class="image" data-id="{{ $name }}_{{ $image->id }}" 
                 data-file="{{ $image->filename }}"
@@ -28,9 +28,9 @@
                 src="{{ asset('storage/products/' . $image->filename)}}">
                 <div class="text-gray-700">{{ $image->title }}</div>
               </div>
-              </div>
-            @endforeach
-          </div>
+            </div>
+          @endforeach
+        </div>
       </main>
       <footer class="modal__footer">
         <button type="button" class="modal__btn" data-micromodal-close aria-label="閉じる">閉じる</button>
