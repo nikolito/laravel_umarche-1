@@ -9,9 +9,10 @@ https://www.udemy.com/share/104J4k3@IMep40V66vX5HuXpdptkO5bpqHw07p5Cldci2D_3-B52
 ## フォロー内容
 
 - bugfix_cookie: 同じブラウザで同時にユーザー、オーナー、アドミンの画面をそれぞれ開いてログインし、各画面を切り替えて動作を確認すると、そのままではブラウザ内のセッション情報を共有してしまいます。これは、セキュリティホールになりますので必ず対処が必要です。このブランチは現在masterにもマージしています。
-.envにもSESSION_COOKIE=user、SESSION_COOKIE_OWNER=owner、SESSION_COOKIE_ADMIN=adminの設定を追加してください。
+/.envにもSESSION_COOKIE=user、SESSION_COOKIE_OWNER=owner、SESSION_COOKIE_ADMIN=adminの設定を追加してください。
 - bugfix_micromodal: コース98で講師のアオキさんが商品画像のアップロードの不具合について説明してくれています。なんとか修正したいのですが、私にも根本的な解決ができません。Micromodal.jsはdata-micromodal-triggerで指定した最後のボタンに紐づく$modalを勝手に書き換えてしまうように見えます。とりあえず、5番目の「ファイルを選択」ボタンを見えなくしておき、select-image.blade.phpで最後のボタンの$modalを書き換えないようにしました。5番目のボタンが存在すれば、4番目のボタンは正しく動作することを逆手に取った形です。
-- bugfix_optional: resources/views/user/show.blade.phpで商品画像2から4が登録されていなかったとき、Trying to get property of non-objectのようなエラーが出ます。これは、if条件文の中に$product->imageSecond->filename !== nullがあるため、評価時点でデータが取れないことを指摘されています。そこで、2番目以降の画像についてoptional関数を付けることで、対処します。
+- bugfix_optional: /resources/views/user/show.blade.phpで商品画像2から4が登録されていなかったとき、Trying to get property of non-objectのようなエラーが出ます。これは、if条件文の中に$product->imageSecond->filename !== nullがあるため、評価時点でデータが取れないことを指摘されています。そこで、2番目以降の画像についてoptional関数を付けることで、対処します。
+- bugfix_swiper_zindex: /resources/views/user/show.blade.phpにてショップの説明画面をモーダルで表示する部分がswiper.jsの画面に隠れる件を対処しました。修正は/resources/css/micromodal.cssにz-index: 1000 (1000は任意の十分大きい数)を追加し、npm run devなどでcssを再コンパイルします。
 ------------
 
 ## ダウンロード方法
